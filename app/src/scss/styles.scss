@@ -219,18 +219,19 @@ button {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    padding: 44px;
     &-title {
       font-weight: 600;
       font-size: 30px;
-      line-height: 80px;
-      padding-left: 40px;
+      line-height: 40px;
+      margin-bottom: 20px;
     }
     &-description {
       font-weight: 400;
       font-size: 16px;
       line-height: 24px;
       color: $color-secondary;
-      padding: 0 40px 30px;
+      margin-bottom: 20px;
     }
     &:first-child {
       grid-row: span 2;
@@ -238,8 +239,6 @@ button {
     &:nth-child(2) {
       img {
         align-self: end;
-        padding-left: 122px;
-        padding-top: 0px;
       }
     }
     &:last-child {
@@ -248,11 +247,13 @@ button {
       flex-direction: row;
     }
 
-    button {
-      padding: 16px 64px;
-    }
     &-button {
-      margin: auto auto 50px 40px;
+      padding: 14px 50px;
+      font-size: 20px;
+      line-height: 30px;
+      margin-top: auto;
+      border-radius: 5px;
+      max-width: 230px;
     }
   }
   @media screen and (max-width: $desktop-sm) {
@@ -272,7 +273,7 @@ button {
         }
       }
 
-      button {
+      &-button {
         padding: 16px 40px;
         font-weight: 500;
         font-size: 18px;
@@ -352,22 +353,23 @@ button {
   &__card {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     img {
-      padding-bottom: 40px;
+      margin-bottom: 40px;
       max-width: 380px;
-      max-height: 315px;
+      max-height: 280px;
     }
     &-title {
       font-weight: 600;
       font-size: 30px;
       line-height: 48px;
       color: $color-title;
-      padding-bottom: 20px;
+      margin-bottom: 20px;
     }
     &-description {
       color: $color-secondary;
-      padding-bottom: 40px;
-      max-height: 100px;
+      margin-bottom: 40px;
     }
     &-button {
       background: #eeeeee;
