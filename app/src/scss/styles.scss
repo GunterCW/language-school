@@ -17,6 +17,15 @@ body {
   font-style: normal;
   font-size: 20px;
   line-height: 30px;
+  @media screen and (max-width: $desktop-sm) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+main {
+  @media screen and (max-width: $desktop-sm) {
+    display: column;
+  }
 }
 a {
   text-decoration: none;
@@ -49,6 +58,10 @@ img {
   font-weight: 600;
   font-size: 48px;
   line-height: 80px;
+  @media screen and (max-width: $desktop-sm) {
+    font-size: 36px;
+    line-height: 80px;
+  }
 }
 button {
   cursor: pointer;
@@ -103,6 +116,22 @@ button {
     background-color: white;
     color: #000;
   }
+  @media screen and (max-width: $desktop-sm) {
+    max-width: 1000px;
+    gap: 100px;
+    &__item:nth-child(1) {
+      max-width: 100px;
+    }
+    &__item:nth-child(3) {
+      max-width: 200px;
+      button {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 26px;
+        padding: 10px 60px;
+      }
+    }
+  }
 }
 .main {
   display: flex;
@@ -138,7 +167,42 @@ button {
   &__button {
     padding: 32px 118px;
   }
+  @media screen and (max-width: $desktop-sm) {
+    &__item {
+      margin-top: 80px;
+    }
+    &-title {
+      &__description {
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 30px;
+      }
+      &__text {
+        font-size: 48px;
+        line-height: 64px;
+        max-width: 290px;
+      }
+      &__item {
+        img {
+          max-width: 100px;
+          max-height: 100px;
+          margin-bottom: 12px;
+        }
+      }
+    }
+    &__img {
+      max-width: 450px;
+      max-height: 450px;
+      margin-top: 60px;
+    }
+    &__button {
+      padding: 22px 78px;
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
 }
+
 .section {
   &__title {
     text-align: center;
@@ -191,6 +255,31 @@ button {
       margin: auto auto 50px 40px;
     }
   }
+  @media screen and (max-width: $desktop-sm) {
+    &__card {
+      &-title {
+        font-size: 22px;
+        line-height: 80px;
+      }
+      &-description {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      &:nth-child(2) {
+        img {
+          padding-left: 0px;
+        }
+      }
+
+      button {
+        padding: 16px 40px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 27px;
+      }
+    }
+  }
 }
 
 .section-about {
@@ -202,8 +291,7 @@ button {
   }
   &__title {
     font-weight: 600;
-    font-size: 48px;
-    line-height: 80px;
+
     color: $color-primary;
     padding-bottom: 24px;
   }
@@ -231,6 +319,22 @@ button {
       color: $color-secondary;
       display: flex;
       justify-content: center;
+    }
+  }
+  @media screen and (max-width: $desktop-sm) {
+    &__item {
+      max-width: 510px;
+    }
+    &__stats {
+      &-number {
+        font-size: 30px;
+        line-height: 40px;
+      }
+    }
+    img {
+      max-width: 340px;
+      max-height: 340px;
+      margin-top: 42px;
     }
   }
 }
@@ -289,9 +393,6 @@ button {
 .section-contact {
   display: flex;
   &__title {
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 80px;
     padding-bottom: 40px;
   }
   &__description {
@@ -319,6 +420,14 @@ button {
       border: 1px solid #8f95a5;
       box-sizing: border-box;
       border-radius: 10px;
+    }
+  }
+  @media screen and (max-width: $desktop-sm) {
+    img {
+      max-width: 312px;
+      max-height: 272px;
+    }
+    &-button {
     }
   }
 }
