@@ -5,7 +5,6 @@ $color-title: #263238;
 $desktop-sm: 1100px;
 $tablet: 768px;
 $mobile: 540px;
-
 * {
   padding: 0;
   margin: 0;
@@ -17,6 +16,15 @@ body {
   font-style: normal;
   font-size: 20px;
   line-height: 30px;
+  @media screen and (max-width: $desktop-sm) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+main {
+  @media screen and (max-width: $desktop-sm) {
+    display: column;
+  }
 }
 a {
   text-decoration: none;
@@ -44,11 +52,30 @@ img {
 }
 .section {
   margin-top: 120px;
+  @media screen and (max-width: $desktop-sm) {
+    margin-top: 70px;
+  }
+
+  @media screen and (max-width: $tablet) {
+    margin-top: 50px;
+  }
 }
 .title {
   font-weight: 600;
   font-size: 48px;
   line-height: 80px;
+  @media screen and (max-width: $desktop-sm) {
+    font-size: 36px;
+    line-height: 80px;
+  }
+  @media screen and (max-width: $tablet) {
+    font-size: 36px;
+    line-height: 45px;
+  }
+  @media screen and (max-width: $mobile) {
+    font-size: 30px;
+    line-height: 40px;
+  }
 }
 button {
   cursor: pointer;
@@ -103,7 +130,63 @@ button {
     background-color: white;
     color: #000;
   }
+  @media screen and (max-width: $desktop-sm) {
+    max-width: 1000px;
+    gap: 100px;
+    &-title {
+      font-size: 30px;
+      line-height: 45px;
+    }
+    &__item:nth-child(1) {
+      max-width: 100px;
+    }
+    &__item:nth-child(3) {
+      max-width: 200px;
+      button {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 26px;
+        padding: 10px 60px;
+      }
+    }
+  }
+  @media screen and (max-width: $tablet) {
+    gap: 50px;
+    &__item:nth-child(3) {
+      max-width: 120px;
+      button {
+        max-width: 150px;
+        font-size: 16px;
+        line-height: 18px;
+        margin: 0;
+        padding: 14px 20px;
+      }
+    }
+  }
+  @media screen and (max-width: $mobile) {
+    gap: 0;
+    &-nav {
+      &__list {
+        display: none;
+      }
+    }
+    &__item:nth-child(3) {
+      button {
+        margin: auto;
+        padding: 14px 20px;
+      }
+    }
+  }
+  @media screen and(max-width: 330px) {
+    &__item:nth-child(3) {
+      button {
+        margin: auto;
+        padding: 12px 10px;
+      }
+    }
+  }
 }
+
 .main {
   display: flex;
   justify-content: space-between;
@@ -138,7 +221,111 @@ button {
   &__button {
     padding: 32px 118px;
   }
+  @media screen and (max-width: $desktop-sm) {
+    &__item {
+      margin-top: 80px;
+    }
+    &-title {
+      &__description {
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 30px;
+      }
+      &__text {
+        font-size: 48px;
+        line-height: 64px;
+        max-width: 290px;
+      }
+      &__item {
+        img {
+          max-width: 100px;
+          max-height: 100px;
+          margin-bottom: 12px;
+        }
+      }
+    }
+    &__img {
+      max-width: 450px;
+      max-height: 450px;
+      margin-top: 60px;
+    }
+    &__button {
+      padding: 22px 78px;
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+  @media screen and (max-width: $tablet) {
+    &__item {
+      margin-top: 70px;
+      img {
+        width: 74px;
+        height: 74px;
+      }
+    }
+    &-title {
+      &__item {
+        margin-bottom: 24px;
+      }
+      &__text {
+        font-size: 36px;
+        line-height: 45px;
+        width: 218px;
+      }
+      &__description {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 20px;
+      }
+    }
+    &__img {
+      width: 350px;
+      height: 350px;
+      margin-top: 38px;
+    }
+    &__button {
+      font-size: 18px;
+      line-height: 26px;
+      padding: 14px 64px;
+      border-radius: 5px;
+    }
+  }
+  @media screen and (max-width: $mobile) {
+    flex-direction: column-reverse;
+    &__img {
+      height: 100%;
+      width: 100%;
+    }
+    &__item {
+      img {
+        display: none;
+      }
+    }
+    &-title {
+      &__text {
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+        font-size: 26px;
+        br {
+          display: none;
+        }
+      }
+      &__description {
+        text-align: center;
+      }
+      &__item {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+    &__button {
+      display: block;
+      margin: 0 auto;
+    }
+  }
 }
+
 .section {
   &__title {
     text-align: center;
@@ -153,20 +340,39 @@ button {
   &__card {
     background-color: #f5f5f5;
     border-radius: 10px;
+    padding: 44px;
     display: flex;
     flex-direction: column;
+
+    &-img {
+      max-height: 260px;
+
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
     &-title {
       font-weight: 600;
       font-size: 30px;
-      line-height: 80px;
-      padding-left: 40px;
+      line-height: 40px;
+      margin-bottom: 20px;
     }
     &-description {
       font-weight: 400;
       font-size: 16px;
       line-height: 24px;
       color: $color-secondary;
-      padding: 0 40px 30px;
+      margin-bottom: 20px;
     }
     &:first-child {
       grid-row: span 2;
@@ -174,21 +380,115 @@ button {
     &:nth-child(2) {
       img {
         align-self: end;
-        padding-left: 122px;
-        padding-top: 0px;
       }
     }
-    &:last-child {
-      grid-column: span 2;
+    &--horizontal {
       display: flex;
-      flex-direction: row;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+      grid-column: span 2;
+
+      .section__card-content {
+        max-width: 50%;
+      }
+      .section__card-img img {
+        min-height: unset;
+      }
     }
 
-    button {
-      padding: 16px 64px;
-    }
     &-button {
-      margin: auto auto 50px 40px;
+      padding: 14px 50px;
+      font-size: 20px;
+      line-height: 30px;
+      margin-top: auto;
+      border-radius: 5px;
+      max-width: 230px;
+    }
+  }
+  @media screen and (max-width: $desktop-sm) {
+    &__card {
+      &-title {
+        font-size: 22px;
+        line-height: 40px;
+      }
+      &-description {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      &:nth-child(2) {
+        img {
+          padding-left: 0px;
+        }
+      }
+
+      &-button {
+        padding: 16px 40px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 27px;
+      }
+    }
+  }
+  @media screen and (max-width: $tablet) {
+    &__title {
+      margin-bottom: 50px;
+    }
+    &__card {
+      padding: 14px;
+      &-title {
+        font-size: 20px;
+        line-height: 40px;
+      }
+      &-button {
+        font-size: 16px;
+        line-height: 24px;
+        padding: 8px 42px;
+      }
+    }
+  }
+  @media screen and (max-width: $mobile) {
+    &-skills {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &__card:first-child {
+      grid-row: span 1;
+    }
+    &__card {
+      &--horizontal {
+        grid-column: span 1;
+        flex-direction: column;
+        .section__card-content {
+          max-width: 100%;
+        }
+      }
+      &-img {
+        max-width: 182px;
+        max-height: 110px;
+      }
+      &-description {
+        font-size: 12px;
+        line-height: 18px;
+      }
+      &-title {
+        font-size: 18px;
+        text-align: left;
+      }
+      &-button {
+        font-size: 14px;
+        line-height: 20px;
+        padding: 12px 24px;
+      }
+    }
+  }
+  @media screen and(max-width: 330px) {
+    &__card {
+      &-button {
+        font-size: 10px;
+        line-height: 40px;
+        padding: 0px 16px;
+      }
     }
   }
 }
@@ -202,8 +502,7 @@ button {
   }
   &__title {
     font-weight: 600;
-    font-size: 48px;
-    line-height: 80px;
+
     color: $color-primary;
     padding-bottom: 24px;
   }
@@ -233,6 +532,60 @@ button {
       justify-content: center;
     }
   }
+  @media screen and (max-width: $desktop-sm) {
+    &__item {
+      max-width: 510px;
+    }
+    &__stats {
+      &-number {
+        font-size: 30px;
+        line-height: 40px;
+      }
+    }
+    img {
+      max-width: 340px;
+      max-height: 340px;
+      margin-top: 42px;
+    }
+  }
+  @media screen and(max-width:$tablet) {
+    &__content {
+      &-description {
+        padding-bottom: 20px;
+      }
+    }
+    &__stats {
+      &-number {
+        font-size: 22px;
+      }
+      &-description {
+        font-size: 13px;
+        line-height: 20px;
+      }
+    }
+    img {
+      max-width: 300px;
+      max-height: 300px;
+      margin-top: 60px;
+    }
+  }
+  @media screen and (max-width: $mobile) {
+    flex-direction: column-reverse;
+    img {
+      max-width: 350px;
+      max-height: 350px;
+    }
+    &__title {
+      text-align: center;
+    }
+    &__content {
+      &-description {
+        font-size: 14px;
+        line-height: 21px;
+        text-align: center;
+      }
+    }
+  }
 }
 .section-pricing {
   display: grid;
@@ -248,22 +601,25 @@ button {
   &__card {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    flex: 1;
     img {
-      padding-bottom: 40px;
+      margin-bottom: 40px;
       max-width: 380px;
-      max-height: 315px;
+      max-height: 280px;
+      height: 100%;
     }
     &-title {
       font-weight: 600;
       font-size: 30px;
       line-height: 48px;
       color: $color-title;
-      padding-bottom: 20px;
+      margin-bottom: 20px;
     }
     &-description {
       color: $color-secondary;
-      padding-bottom: 40px;
-      max-height: 100px;
+      margin-bottom: 40px;
     }
     &-button {
       background: #eeeeee;
@@ -285,13 +641,60 @@ button {
       }
     }
   }
+  @media screen and (max-width: $desktop-sm) {
+    &__card {
+      &-title {
+        font-size: 22px;
+        line-height: 34px;
+      }
+      &-button {
+        font-size: 24px;
+        line-height: 36px;
+
+        span {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: $tablet) {
+    &__title {
+      font-size: 30px;
+      line-height: 40px;
+      margin-bottom: 40px;
+    }
+    &__card {
+      img {
+        max-width: 196px;
+        max-height: 196px;
+      }
+      &-title {
+        height: 68px;
+      }
+      &-button {
+        font-size: 20px;
+        padding: 0 14px;
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: $mobile) {
+    grid-template-columns: 1fr;
+    &__card {
+      align-items: center;
+      text-align: center;
+      &-button {
+        margin: 0 auto;
+      }
+    }
+  }
 }
 .section-contact {
   display: flex;
   &__title {
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 80px;
     padding-bottom: 40px;
   }
   &__description {
@@ -321,6 +724,70 @@ button {
       border-radius: 10px;
     }
   }
+  @media screen and (max-width: $desktop-sm) {
+    &__content {
+      margin-left: 100px;
+    }
+    img {
+      max-width: 312px;
+      max-height: 272px;
+    }
+    &__form {
+      &-input {
+        height: 60px;
+      }
+      &-button {
+        font-size: 16px;
+        line-height: 24px;
+        padding: 14px 50px;
+        height: 60px;
+      }
+    }
+  }
+  @media screen and (max-width: $tablet) {
+    &__content {
+      margin-left: 40px;
+    }
+    &__title {
+      padding-bottom: 20px;
+    }
+    &__description {
+      padding-bottom: 30px;
+    }
+    img {
+      width: 220px;
+      height: 210px;
+    }
+    &__form {
+      &-button {
+        font-size: 12px;
+        line-height: 18px;
+        padding: 12px 40px;
+      }
+    }
+  }
+  @media screen and (max-width: $mobile) {
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+    &__title {
+    }
+    &__content {
+      margin-left: 0;
+    }
+    &__description {
+      text-align: center;
+    }
+    &__form {
+      &-button {
+        margin-left: 10px;
+      }
+    }
+  }
 }
 
 .footer {
@@ -338,6 +805,28 @@ button {
         font-weight: 400;
 
         color: inherit;
+      }
+    }
+  }
+  @media screen and (max-width: $desktop-sm) {
+    img {
+      width: 100%;
+      height: 1px;
+    }
+    &__content {
+      padding-top: 20px;
+    }
+  }
+  @media screen and (max-width: $tablet) {
+    margin-top: 40px;
+  }
+  @media screen and (max-width: $mobile) {
+    &__content {
+      &-policy {
+        font-size: 12px;
+        line-height: 18px;
+        text-align: right;
+        max-width: 180px;
       }
     }
   }
